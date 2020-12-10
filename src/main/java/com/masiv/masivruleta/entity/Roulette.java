@@ -11,8 +11,13 @@ import org.springframework.data.redis.core.RedisHash;
 @NoArgsConstructor
 @RedisHash("Roulette")
 public class Roulette {
+    public int getId() {
+        return id;
+    }
+
     @Id
     private int id;
     private boolean oppend = false;
+
 
 }
