@@ -1,5 +1,6 @@
 package com.masiv.masivruleta;
 
+import com.masiv.masivruleta.entity.Bet;
 import com.masiv.masivruleta.entity.Roulette;
 import com.masiv.masivruleta.repository.RouletteDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class MasivRuletaApplication {
 	@DeleteMapping("/{id}")
 	public String deleteRoulette(@PathVariable int id){
 		return rouletteDao.remove(id);
+	}
+
+	@PostMapping("/bet/{idRoulette}")
+	public String makeBet(@PathVariable int idRoulette, @RequestBody Bet bet, @RequestHeader int userId){
+		return rouletteDao.addBet(idRoulette, bet, userId);
 	}
 
 	public static void main(String[] args) {
