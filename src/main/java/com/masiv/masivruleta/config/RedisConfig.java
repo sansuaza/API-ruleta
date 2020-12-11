@@ -1,5 +1,6 @@
 package com.masiv.masivruleta.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +23,7 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate <String, Object> redisTemplate(){
+    public RedisTemplate <String, Object> template(){
         RedisTemplate <String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory());
         template.setKeySerializer(new StringRedisSerializer());
