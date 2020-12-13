@@ -17,7 +17,19 @@ public class Bet implements Serializable {
     private String typeBet;
     private long betAmount;
     private int betNumber;
-    private int winnerNumber;
+
+    public void setWinner(boolean winner) {
+        isWinner = winner;
+    }
+
+    private boolean isWinner = false;
+
+    public void setBetPrize(long betPrize) {
+        this.betPrize = betPrize;
+    }
+
+    private long betPrize;
+
 
     public int getIdUser() {
         return idUser;
